@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Policies — Auto Veo Pitstop</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .policy-page{ padding:60px 0 100px; }
+  .policy-head{ margin-bottom:56px; max-width:640px; }
+  .policy-head .eyebrow{ color:var(--muted); }
+  .policy-head .eyebrow::before{ background:var(--blue); }
+  .policy-nav{
+    display:flex; gap:8px; flex-wrap:wrap; margin-bottom:56px;
+    border-bottom:1px solid var(--hair); padding-bottom:24px;
+  }
+  .policy-nav a{
+    font-size:13.5px; font-weight:600; padding:9px 16px; border-radius:999px;
+    border:1.5px solid var(--hair); color:var(--ink);
+  }
+  .policy-nav a:hover{ border-color:var(--ink); }
+  .policy-block{ margin-bottom:64px; scroll-margin-top:100px; }
+  .policy-block h2{ font-size:clamp(26px,3.4vw,34px); text-transform:uppercase; margin-bottom:18px; }
+  .policy-block h3{ font-size:16px; font-weight:700; margin:22px 0 8px; }
+  .policy-block p{ color:#3D4350; font-size:15px; margin-bottom:12px; max-width:720px; }
+  .policy-block ul{ margin:0 0 12px 0; }
+  .policy-block li{ color:#3D4350; font-size:15px; margin-bottom:8px; padding-left:20px; position:relative; max-width:700px; }
+  .policy-block li::before{ content:"—"; position:absolute; left:0; color:var(--muted); }
+  .policy-table{ width:100%; border-collapse:collapse; margin:16px 0 20px; max-width:700px; }
+  .policy-table th, .policy-table td{ text-align:left; padding:10px 14px; border-bottom:1px solid var(--hair); font-size:14px; }
+  .policy-table th{ color:var(--muted); font-weight:600; text-transform:uppercase; font-size:11.5px; letter-spacing:0.05em; }
+  .callout{
+    background:var(--panel); border-left:3px solid var(--blue); border-radius:0 8px 8px 0;
+    padding:16px 20px; font-size:14px; color:#3D4350; margin:16px 0; max-width:700px;
+  }
+  .faq-item{ border-bottom:1px solid var(--hair); }
+  .faq-q{
+    width:100%; text-align:left; background:none; border:none; cursor:pointer;
+    padding:18px 0; font-size:15.5px; font-weight:600; color:var(--ink);
+    display:flex; align-items:center; justify-content:space-between; font-family:inherit;
+  }
+  .faq-q svg{ width:18px; height:18px; flex-shrink:0; transition:transform .2s ease; }
+  .faq-item.open .faq-q svg{ transform:rotate(45deg); }
+  .faq-a{ max-height:0; overflow:hidden; transition:max-height .25s ease; }
+  .faq-item.open .faq-a{ max-height:200px; }
+  .faq-a p{ padding-bottom:18px; }
+  .contact-grid{ display:grid; grid-template-columns:1fr 1fr; gap:24px; max-width:700px; }
+  .contact-card{ border:1px solid var(--hair); border-radius:10px; padding:22px; }
+  .contact-card h4{ font-size:14px; margin-bottom:6px; }
+  .contact-card p{ font-size:14px; color:var(--muted); margin:0; }
+  @media (max-width:700px){ .contact-grid{ grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="brand">
+      <div class="brand-badge" aria-hidden="true"><img src="assets/logo.png" alt=""></div>
+      <div class="brand-name">Auto Veo<span>Pitstop · Garage · Toys</span></div>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html#categories">Car Accessories</a>
+      <a href="index.html#categories">Bike Garage</a>
+      <a href="index.html#categories">Toy Garage</a>
+      <a href="policies.html">Policies</a>
+      <a href="index.html#about">About</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="icon-btn" id="cartBtn" aria-label="Cart">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M3 4h2l2.4 12.4A2 2 0 009.4 18h7.2a2 2 0 002-1.6L20 8H6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="21" r="1.4" fill="currentColor"/><circle cx="17" cy="21" r="1.4" fill="currentColor"/></svg>
+        <span class="cart-count mono" style="display:none;">0</span>
+      </button>
+      <div id="authSlot"><button class="btn btn-outline btn-sm">Login</button></div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap policy-page">
+  <div class="policy-head">
+    <div class="eyebrow">Store policies</div>
+    <h1 class="section-title display">Shipping, returns &amp; the fine print</h1>
+    <p class="section-desc">Everything you need to know before and after you order from Auto Veo Pitstop.</p>
+  </div>
+
+  <nav class="policy-nav" aria-label="Policy sections">
+    <a href="#shipping">Shipping</a>
+    <a href="#returns">Returns &amp; Refunds</a>
+    <a href="#warranty">Warranty</a>
+    <a href="#privacy">Privacy Policy</a>
+    <a href="#terms">Terms of Service</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <div class="policy-block" id="shipping">
+    <h2 class="display">Shipping Policy</h2>
+    <p>We ship across India from our Auto Veo Pitstop workshop. Most orders are packed and handed to our courier partner within 1–2 business days.</p>
+    <table class="policy-table">
+      <thead><tr><th>Order value</th><th>Shipping charge</th><th>Estimated delivery</th></tr></thead>
+      <tbody>
+        <tr><td>₹999 and above</td><td>Free</td><td>3–6 business days</td></tr>
+        <tr><td>Below ₹999</td><td>₹79 flat</td><td>3–6 business days</td></tr>
+        <tr><td>Remote / North-East pin codes</td><td>₹149 flat</td><td>6–10 business days</td></tr>
+      </tbody>
+    </table>
+    <p>You'll get an SMS and email with tracking details once your order ships. Delivery times are estimates and can shift during festive periods or due to courier delays outside our control.</p>
+    <div class="callout">Cash on Delivery (COD) is available on orders under ₹5,000. A small COD handling fee of ₹29 applies at checkout.</div>
+  </div>
+
+  <div class="policy-block" id="returns">
+    <h2 class="display">Returns &amp; Refunds</h2>
+    <p>Not happy with something? You can request a return within 7 days of delivery.</p>
+    <h3>Eligible for return</h3>
+    <ul>
+      <li>Item arrived damaged, defective, or different from what you ordered</li>
+      <li>Unused accessories and toys still in original packaging with tags/seals intact</li>
+      <li>Wrong size or fit on helmets and riding gear, unworn and with tags attached</li>
+    </ul>
+    <h3>Not eligible for return</h3>
+    <ul>
+      <li>Used or installed parts (e.g. fitted seat covers, opened lube/chemical kits)</li>
+      <li>Items without original packaging, accessories, or manuals</li>
+      <li>Products marked "Final Sale" at checkout</li>
+    </ul>
+    <p>Once we receive and inspect the returned item, refunds are processed to your original payment method within 5–7 business days. COD orders are refunded via bank transfer or UPI.</p>
+  </div>
+
+  <div class="policy-block" id="warranty">
+    <h2 class="display">Warranty</h2>
+    <p>Manufacturer warranty terms apply as stated on individual product pages — typically 6 months on electronics-based accessories (like phone mounts with charging) and 12 months on helmets against manufacturing defects. Die-cast toy models are covered against manufacturing defects for 30 days from delivery, but general wear from display or handling is not covered.</p>
+  </div>
+
+  <div class="policy-block" id="privacy">
+    <h2 class="display">Privacy Policy</h2>
+    <p>We collect only what we need to process your order and improve the shop: your name, email, phone number, delivery address, and order history. If you sign in with Google, we receive your name and email address from Google — we never receive or store your Google password.</p>
+    <h3>How we use your information</h3>
+    <ul>
+      <li>To process orders, arrange delivery, and send order updates</li>
+      <li>To respond to support requests and returns</li>
+      <li>To send newsletter emails, only if you've subscribed — you can unsubscribe anytime</li>
+    </ul>
+    <h3>What we don't do</h3>
+    <ul>
+      <li>We don't sell your personal data to third parties</li>
+      <li>We don't store your full card details — payments are handled by our payment gateway partner, not on our own servers</li>
+    </ul>
+    <p>You can request a copy of your data or ask us to delete your account by emailing our support team (see Contact below).</p>
+  </div>
+
+  <div class="policy-block" id="terms">
+    <h2 class="display">Terms of Service</h2>
+    <p>By placing an order with Auto Veo Pitstop, you agree to the following:</p>
+    <ul>
+      <li>Product images are for illustration — actual color or packaging may vary slightly</li>
+      <li>Prices are in Indian Rupees (₹) and include applicable GST unless stated otherwise</li>
+      <li>We reserve the right to cancel an order if an item is out of stock or priced incorrectly due to a listing error — you'll be refunded in full if this happens</li>
+      <li>Fitment accessories (seat covers, mats, mounts) are sold as universal-fit unless the listing specifies a particular make and model</li>
+      <li>Helmets and riding gear are safety equipment — always check size charts before ordering, since returns on worn items aren't accepted</li>
+    </ul>
+  </div>
+
+  <div class="policy-block" id="faq">
+    <h2 class="display">Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+      <button class="faq-q">Can I cancel my order after placing it?
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+      <div class="faq-a"><p>Yes, as long as it hasn't shipped yet. Contact support with your order number and we'll cancel and refund it right away.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Do you offer installation for car accessories?
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+      <div class="faq-a"><p>Most accessories (seat covers, mats, mounts) are designed for easy self-install. For anything trickier, our support chat can point you to a partner garage near you.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Are the die-cast models to accurate scale?
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+      <div class="faq-a"><p>Yes — each listing states the scale (1:64, 1:18, 1:24) clearly, and dimensions are listed on the product page.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">What if my helmet doesn't fit?
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+      <div class="faq-a"><p>Check our size chart before ordering. If it doesn't fit, you can exchange it within 7 days as long as it's unworn with tags attached.</p></div>
+    </div>
+  </div>
+
+  <div class="policy-block" id="contact">
+    <h2 class="display">Contact Us</h2>
+    <p>Have a question that's not covered here? Reach us through any of these:</p>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <h4>Email Support</h4>
+        <p>support@autoveopitstop.com<br>Replies within 24 hours</p>
+      </div>
+      <div class="contact-card">
+        <h4>WhatsApp</h4>
+        <p>Chat with us directly for quick order questions</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap foot-bottom">
+    <div class="foot-copy">© 2026 Auto Veo Pitstop. All rights reserved.</div>
+    <div class="foot-links">
+      <a href="index.html">Home</a>
+      <a href="#">Instagram</a>
+      <a href="#">WhatsApp</a>
+    </div>
+  </div>
+</footer>
+
+<div class="overlay" id="cartOverlay"></div>
+<aside class="drawer" id="cartDrawer" aria-label="Shopping cart">
+  <div class="drawer-head">
+    <h3 class="display">Your Cart</h3>
+    <button class="drawer-close" id="drawerCloseBtn" aria-label="Close cart">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+  <div class="drawer-body" id="drawerBody"></div>
+  <div class="drawer-foot" id="drawerFoot" style="display:none;">
+    <div class="cart-subtotal-row"><span>Subtotal</span><span class="mono" id="cartSubtotal">₹0</span></div>
+    <div class="cart-subtotal-row"><span>Shipping</span><span class="mono" id="cartShipping">Free</span></div>
+    <div class="cart-total-row"><span>Total</span><span class="mono" id="cartTotal">₹0</span></div>
+    <button class="btn btn-dark btn-block" id="checkoutBtn">Checkout</button>
+  </div>
+</aside>
+
+<div class="modal-overlay" id="authOverlay">
+  <div class="modal">
+    <button class="modal-close" id="authCloseBtn" aria-label="Close">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+    </button>
+    <div class="modal-logo"><img src="assets/logo.png" alt=""></div>
+    <h2 id="authTitle">Log in to Auto Veo</h2>
+    <div class="modal-sub">Track orders, save your cart, and check out faster.</div>
+    <button class="google-btn" id="googleSignIn" type="button">
+      <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.99.66-2.25 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.85A11 11 0 0012 23z"/><path fill="#FBBC05" d="M5.84 14.1a6.6 6.6 0 010-4.2V7.05H2.18a11 11 0 000 9.9l3.66-2.85z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.05l3.66 2.85C6.71 7.3 9.14 5.38 12 5.38z"/></svg>
+      Continue with Google
+    </button>
+    <div class="divider">or use email</div>
+    <form id="authForm">
+      <div class="form-group" id="nameGroup" style="display:none;">
+        <label for="authName">Full name</label>
+        <input type="text" id="authName" placeholder="Rohan Sharma">
+      </div>
+      <div class="form-group">
+        <label for="authEmail">Email</label>
+        <input type="email" id="authEmail" placeholder="you@email.com" required>
+      </div>
+      <div class="form-group">
+        <label for="authPassword">Password</label>
+        <input type="password" id="authPassword" placeholder="••••••••" required>
+      </div>
+      <div class="form-error" id="authError"></div>
+      <button type="submit" class="btn btn-dark btn-block" id="authSubmit" style="margin-top:6px;">Log In</button>
+    </form>
+    <div class="modal-switch">
+      <span class="switch-text">New to Auto Veo?</span>
+      <button type="button" id="authModeToggle">Create an account</button>
+    </div>
+    <div class="mock-note">Demo login for preview purposes — email/password and Google sign-in are simulated. See <code>app.js</code> for real OAuth setup notes.</div>
+  </div>
+</div>
+
+<div class="toast" id="toast">
+  <svg viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4L19 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  <span class="toast-msg"></span>
+</div>
+
+<script src="app.js"></script>
+<script>
+  // FAQ accordion (page-specific, kept out of shared app.js)
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.querySelector('.faq-q').addEventListener('click', () => {
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+</script>
+</body>
+</html>
